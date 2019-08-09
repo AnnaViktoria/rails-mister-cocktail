@@ -1,7 +1,12 @@
-<h1>Cocktail List</h1>
-
-<% @cocktails.each do |cocktail|  %>
-<%= link_to cocktail.name, cocktail_path(cocktail) %>
-<% end  %>
-<br>
-<%= link_to 'Add a new cocktail', new_cocktail_path %>
+  <%= render 'shared/banner' %>
+<div class="container">
+<div class="row">
+  <% @cocktails.each do |cocktail|  %>
+  <div class="col-3">
+  <div class="cocktail-box">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1536935338788-846bb9981813?ixlib=rb-1.2.1&auto=format&fit=crop&w=1372&q=80)"><h5 class="card-title"><span style="background-color: #f2f0e6"><%= link_to cocktail.name, cocktail_path(cocktail), class: "cardy-text" %></span></h5>
+    </div>
+    </div>
+  </div>
+  <% end %>
+</div>

@@ -1,8 +1,9 @@
 require 'open-uri'
 require 'json'
 
-
+Dose.destroy_all
 Ingredient.destroy_all
+
 request_uri = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
 request_query = ''
 url = "#{request_uri}#{request_query}"
@@ -14,7 +15,7 @@ ingredients.each do |ingredient|
  Ingredient.create(name: ingredient['strIngredient1'])
 end
 
-# Ingredient.create(name: "Lemon")
+# Ingredient.create(name: 'Tonic')
 # Ingredient.create(name: "Ice")
 # Ingredient.create(name: "Mint leaves")
 # Ingredient.create(name: "Light rum")
