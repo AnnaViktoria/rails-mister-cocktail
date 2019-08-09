@@ -1,8 +1,24 @@
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1546903600-1ab648d68d36?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80);">
+  <div class="container">
+    <h1>Add a Cocktail to Anna's Cocktail Trolley</h1>
+    <p>What is the name of your cocktail?</p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-6">
+  <div class="ingredient-form">
 <%= simple_form_for @cocktail do |f| %>
   <%= f.input :name %>
-  <%= f.button :submit %>
+  <%= f.input :photo %>
+  <%= f.input :photo_cache, as: :hidden %>
+  <%= f.button :submit, class: "btn btn-ghost" %>
 <% end %>
-
+</div>
+  </div>
+  </div>
+</div>
 
 
 

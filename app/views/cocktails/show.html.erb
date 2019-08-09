@@ -1,23 +1,28 @@
-<h1>This is the show</h1>
-
-<%= @cocktail.name %>
-<br>
-
-<ul>
-<% @cocktail.doses.each do |dose| %>
-<li><h3><%= dose.ingredient.name %></h3></li>
-<li><p><%= dose.description %></p></li>
-<li><%= link_to "Delete a dose from this cocktail", dose_path(dose),
-      method: :delete %></li>
-<%end  %>
-</ul>
-<%= link_to 'Go Back to Cocktails', cocktails_path %>
-<br>
-<%= link_to 'Add an ingredient', new_cocktail_dose_path(@cocktail) %>
-<br>
-<%= link_to "Delete this cocktail", cocktail_path(@cocktail),
-      method: :delete,
-      data: { confirm: "Are you sure?" } %>
 
 
-<%= render 'shared/form', dose: @dose, cocktail: @cocktail %>
+<div class="container">
+<div class="show-banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>');">
+  <div class="container">
+  </div>
+</div>
+  <h1><%= @cocktail.name %></h1>
+    <div class = "row">
+      <div class = "col-12 col-md-6 col-lg-8">
+        <% @cocktail.doses.each do |dose| %>
+        <%= cl_image_path @cocktail.photo, height: 300, width: 400, crop: :fill %>
+          <li>Ingredient<h3><%= dose.ingredient.name %></h3></li>
+          <li>Quantity<p><%= dose.description %></p></li>
+          <li><%= link_to "Delete a dose from this cocktail", dose_path(dose),
+          method: :delete %></li>
+          <% end  %>
+      </div> <!-- end of description col-6 -->
+        <div class="col-12 col-md-6 col-lg-4 dose-form">
+          <div class="ingredient-form">
+            <h3>Add an ingredient</h3>
+              <%= render 'shared/form', dose: @dose, cocktail: @cocktail %>
+          </div>
+        </div> <!-- end of dose col-6 -->
+      </div> <!-- end of row -->
+</div> <!-- end of container -->
+
+
